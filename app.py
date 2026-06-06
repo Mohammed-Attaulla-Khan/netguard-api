@@ -39,6 +39,8 @@ def scan_network():
         "active_connections": random.randint(10, 50),
         "packet_analysis": packets
     })
-
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"status": "online", "message": "NetGuard API is running. Access /api/network/scan for payload data."})
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
